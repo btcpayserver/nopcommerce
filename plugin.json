@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Payment methods",
+  "FriendlyName": "Bitcoin payments with BTCPay",
+  "SystemName": "Payments.BTCPayServer",
+  "Version": "1.01",
+  "SupportedVersions": [ "4.60" ],
+  "Author": "Nisaba Solutions",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Payments.BTCPayServer.dll",
+  "Description": "This plugin enables Bitcoin payment with your BTCPay Server instance"
+}
