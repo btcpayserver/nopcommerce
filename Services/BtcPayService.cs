@@ -189,7 +189,7 @@ namespace Nop.Plugin.Payments.BTCPayServer.Services
                     await _orderService.InsertOrderNoteAsync(new OrderNote
                     {
                         OrderId = order.Id,
-                        Note = $"BTCPayServer: Payment received {(order.PaymentStatus is PaymentStatus.Authorized ? $"but waiting to confirm. <a href='{order.AuthorizationTransactionResult}'>Click here for more information.</a>" : $". <a href='{order.CaptureTransactionResult}'>Click here for more information.</a>")}",
+                        Note = $"BTCPayServer: Payment received{(order.PaymentStatus is PaymentStatus.Authorized ? $" but waiting to confirm. <a href='{order.AuthorizationTransactionResult}'>Click here for more information.</a>" : $". <a href='{order.CaptureTransactionResult}'>Click here for more information.</a>")}",
                         DisplayToCustomer = true,
                         CreatedOnUtc = DateTime.UtcNow
                     });

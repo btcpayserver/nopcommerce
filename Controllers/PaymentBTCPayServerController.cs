@@ -153,7 +153,9 @@ namespace Nop.Plugin.Payments.BTCPayServer.Controllers
                 settings.BtcPayStoreID = "";
                 settings.WebHookSecret = "";
                 settings.BtcPayUrl = "";
+                await _settingService.SaveSettingAsync<BtcPaySettings>(settings);
                 ModelState.Clear();
+
                 _paymentSettings.ActivePaymentMethodSystemNames.Remove("Payments.BTCPayServer");
 
                 _notificationService.SuccessNotification("Settings cleared and payment method deactivated");
@@ -172,6 +174,8 @@ namespace Nop.Plugin.Payments.BTCPayServer.Controllers
             if (command == "getautomaticapikeyconfig")
             {
                 settings.BtcPayUrl = model.BtcPayUrl;
+                await _settingService.SaveSettingAsync<BtcPaySettings>(settings);
+
                 string? result = GetRedirectUri(settings);
                 if (result != null)
                 {
