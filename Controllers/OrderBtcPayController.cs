@@ -12,6 +12,12 @@ namespace Nop.Plugin.Payments.BtcPayServer.Controllers
     {
         private readonly IOrderService _orderService;
 
+        public OrderBtcPayController(
+            IOrderService orderService)
+        {
+            _orderService = orderService;
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> Index(Guid id)
         {
