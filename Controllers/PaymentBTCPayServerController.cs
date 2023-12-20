@@ -39,8 +39,6 @@ namespace Nop.Plugin.Payments.BTCPayServer.Controllers
         private readonly IPermissionService _permissionService;
         private readonly ISettingService _settingService;
         private readonly IStoreContext _storeContext;
-        private readonly ICurrencyService _currencyService;
-        private readonly CurrencySettings _currencySettings;
         private readonly ILogger _logger;
         private readonly LinkGenerator _linkGenerator;
         private readonly BtcPayService _btcPayService;
@@ -57,8 +55,6 @@ namespace Nop.Plugin.Payments.BTCPayServer.Controllers
             ISettingService settingService,
             IStoreContext storeContext,
             ILogger logger,
-            CurrencySettings currencySettings,
-            ICurrencyService currencyService,
             IOrderService orderService,
             PaymentSettings settings,
             IHttpClientFactory httpClientFactory)
@@ -70,8 +66,6 @@ namespace Nop.Plugin.Payments.BTCPayServer.Controllers
             _settingService = settingService;
             _storeContext = storeContext;
             _logger = logger;
-            _currencyService = currencyService;
-            _currencySettings = currencySettings;
             _paymentSettings = settings;
 
             _btcPayService = new BtcPayService(orderService, httpClientFactory);
@@ -102,8 +96,6 @@ namespace Nop.Plugin.Payments.BTCPayServer.Controllers
             };
 
             var myStore = _storeContext.GetCurrentStore();
-            var primaryCurrency = await _currencyService.GetCurrencyByIdAsync(_currencySettings.PrimaryStoreCurrencyId);
-            ViewBag.StoreCurrencyCode = primaryCurrency.CurrencyCode ?? "EUR";
             ViewBag.UrlWebHook = new Uri(new Uri(myStore.Url),
                 _linkGenerator.GetPathByAction("Process", "WebHookBtcPay"));
 

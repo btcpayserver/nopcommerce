@@ -142,7 +142,7 @@ namespace Nop.Plugin.Payments.BTCPayServer
 
                 ["Plugins.Payments.BTCPayServer.WebHookInfo"] = "Here is the URL to set for the WebHook creation in BTCPay : ",
                 ["Plugins.Payments.BTCPayServer.WebHookNote"] = "Note: when testing the webhook from BTCPay, you should get an HTTP 422 error.<br/>" +
-                "This is because BTCPay sends empty data while the SmartStore plugin expects real data.<br/>" +
+                "This is because BTCPay sends empty data while the NopCommerce plugin expects real data.<br/>" +
                 "This error therefore indicates that the webhook is indeed accessible from BTCPay.<br/>" +
                 "With a real transaction, you can therefore expect correct operation.",
 
@@ -161,7 +161,7 @@ namespace Nop.Plugin.Payments.BTCPayServer
                 ["Plugins.Payments.BTCPayServer.WebHookSecret"] = "WebHook Secret",
                 ["Plugins.Payments.BTCPayServer.WebHookSecret.Hint"] = "The WebHook Secret value generated in your BTCPay instance",
 
-                ["Plugins.Payments.BTCPayServer.NoteRefund"] = "A refund has been made. Click here to proceed.",
+                ["Plugins.Payments.BTCPayServer.NoteRefund"] = "A refund has been made. Please visit the following link to claim your refund: ",
             });
 
             await base.InstallAsync();
