@@ -4,7 +4,7 @@
 
 ## Plugin Overview
 
-This plugin allows you to easily start accepting Bitcoin payments in your nopCommerce e-commerce store using BTCPay Server — a free, self-hosted and open-source payment gateway. 
+This plugin allows you to easily start accepting Bitcoin payments in your nopCommerce e-commerce store using BTCPay Server — a free, self-hosted and open-source Bitcoin payment gateway. 
 
 ## Features
 
@@ -24,9 +24,7 @@ This plugin allows you to easily start accepting Bitcoin payments in your nopCom
 
 The plugins can be downloaded through [nopCommerce Marketplace](https://www.nopcommerce.com/marketplace/) or [GitHub](https://github.com/btcpayserver/nopcommerce) 
 
-For installing the plugin through nopCommerce, you can either upload the plugin directly from nopCommerce `Configuration > Local plugins > Upload plugin or a theme`
-
-Ensure the plugin file is in ZIP for successful upload. After uploading, find the plugin in the list, click "Install" next to it, and enable it if needed​.
+For installing the plugin through nopCommerce, upload the plugin directly from nopCommerce `Configuration > Local plugins > Upload plugin or a theme`. Ensure the plugin file is in ZIP for successful upload. After uploading, find the plugin in the list, click "Install" next to it, and enable it if needed​.
 
 Alternatively you can manually add upload the plugin to the `/plugins` folder in your nopCommerce directory and restart the application.
 
@@ -66,7 +64,7 @@ BTCPay **Store ID** can be obtained from your BTCPay Server, in Store Settings >
 
 #### Generating the API key
 
-1. To create the **BTCPay API key**, click on the `Account` located at the bottom of the sidebar.
+1. To create the **BTCPay API key**, click on the `Account` located at the bottom of the sidebar of youur BTCPay Server.
 2. Click on the `Manage Account > API Key`.
 3. Click on the `Generate API key` button
 4. Click on the checkboxes and enable the following permissions:
