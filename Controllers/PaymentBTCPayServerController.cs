@@ -27,7 +27,6 @@ using NUglify.Helpers;
 
 namespace Nop.Plugin.Payments.BTCPayServer.Controllers
 {
-    [AuthorizeAdmin]
     [Area(AreaNames.Admin)]
     [AutoValidateAntiforgeryToken]
     public class PaymentBTCPayServerController : BasePaymentController
@@ -75,6 +74,8 @@ namespace Nop.Plugin.Payments.BTCPayServer.Controllers
 
         #region Methods
 
+
+        [AuthorizeAdmin]
         public async Task<IActionResult> Configure()
         {
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManagePaymentMethods))
@@ -111,9 +112,14 @@ namespace Nop.Plugin.Payments.BTCPayServer.Controllers
             }
 
             var myStore = _storeContext.GetCurrentStore();
-            var adminUrl = new Uri(new Uri(myStore.Url),
+            //var adminUrl = new Uri(new Uri(myStore.Url),
+            //    _linkGenerator.GetPathByAction(HttpContext, "GetAutomaticApiKeyConfig", "PaymentBTCPayServer",
+            //        new { ssid = myStore.Id, btcpayuri = btcpayUri }));
+            var adminUrl = new Uri(new Uri("https://" + Request.Host.Value),
                 _linkGenerator.GetPathByAction(HttpContext, "GetAutomaticApiKeyConfig", "PaymentBTCPayServer",
                     new { ssid = myStore.Id, btcpayuri = btcpayUri }));
+
+
             var uri = BTCPayServerClient.GenerateAuthorizeUri(btcpayUri,
                 new[]
                 {
@@ -130,6 +136,7 @@ namespace Nop.Plugin.Payments.BTCPayServer.Controllers
 
 
         [HttpPost]
+        [AuthorizeAdmin]
         public async Task<IActionResult> Configure(ConfigurationModel model, string command = null)
         {
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManagePaymentMethods))
