@@ -1,6 +1,6 @@
 # BTCPay Server – Accept Bitcoin payments in nopCommerce
 
-![BTCPay nopCommerce Banner](https://github.com/btcpayserver/nopcommerce/raw/main/nopCommerceAcceptBitcoin.png?raw=true)
+![BTCPay nopCommerce Banner](https://github.com/btcpayserver/nopcommerce/blob/f24ed2182ae192f8cc81e70c6161020a05984257/nopCommerceAcceptBitcoin.png)
 
 ## Plugin Overview
 
