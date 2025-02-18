@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Copyright>Copyright © Nisaba Solutions</Copyright>
     <Company>Nisaba Solutions</Company>
     <Authors>Nisaba Solutions</Authors>
@@ -45,7 +45,7 @@
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="BTCPayServer.Client" Version="1.7.3" />
+    <PackageReference Include="BTCPayServer.Client" Version="2.0.1" />
   </ItemGroup>
   <!-- This target execute after "Build" target -->
   <Target Name="NopTarget" AfterTargets="Build">

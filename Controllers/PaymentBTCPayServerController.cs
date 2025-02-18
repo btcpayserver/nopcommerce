@@ -27,7 +27,7 @@ using NUglify.Helpers;
 
 namespace Nop.Plugin.Payments.BTCPayServer.Controllers
 {
-    [Area(AreaNames.Admin)]
+    [Area(AreaNames.ADMIN)]
     [AutoValidateAntiforgeryToken]
     public class PaymentBTCPayServerController : BasePaymentController
     {
@@ -78,7 +78,7 @@ namespace Nop.Plugin.Payments.BTCPayServer.Controllers
         [AuthorizeAdmin]
         public async Task<IActionResult> Configure()
         {
-            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManagePaymentMethods))
+            if (!await _permissionService.AuthorizeAsync(StandardPermission.Configuration.MANAGE_PAYMENT_METHODS))
                 return AccessDeniedView();
 
             //load settings for a chosen store scope
@@ -126,7 +126,7 @@ namespace Nop.Plugin.Payments.BTCPayServer.Controllers
                     Policies.CanCreateInvoice, // create invoices for payment
                     Policies.CanViewInvoices, // fetch created invoices to check status
                     Policies.CanModifyInvoices, // able to mark an invoice invalid in case merchant wants to void the order
-                    Policies.CanModifyStoreWebhooks, // able to create the webhook required automatically
+                    Policies.CanModifyWebhooks, // able to create the webhook required automatically
                     Policies.CanViewStoreSettings, // able to fetch rates
                     Policies.CanCreateNonApprovedPullPayments // able to create refunds
                 },
@@ -139,7 +139,7 @@ namespace Nop.Plugin.Payments.BTCPayServer.Controllers
         [AuthorizeAdmin]
         public async Task<IActionResult> Configure(ConfigurationModel model, string command = null)
         {
-            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManagePaymentMethods))
+            if (!await _permissionService.AuthorizeAsync(StandardPermission.Configuration.MANAGE_PAYMENT_METHODS))
                 return AccessDeniedView();
 
             //load settings for a chosen store scope

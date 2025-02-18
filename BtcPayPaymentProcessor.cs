@@ -133,6 +133,7 @@ namespace Nop.Plugin.Payments.BTCPayServer
                         "<ul>" +
                         "    <li>The \"BTCPay Url,\" \"API Key,\" \"BTCPay Store ID,\" and \"WebHook Secret\" fields must be filled out, then save.</li>" +
                         "    <li>Read detailed step by step <a href =\"https://github.com/btcpayserver/nopcommerce?tab=readme-ov-file#manual-configuration\" target=\"_blank\"> instructions on how to manually configure</a>. </li>" +
+                        "</ul>",
 
                 ["Plugins.Payments.BTCPayServer.WebHookInfo"] = "Here is the URL to set for the WebHook creation in BTCPay : ",
 
@@ -298,7 +299,7 @@ namespace Nop.Plugin.Payments.BTCPayServer
             // implement process payment
             try
             {
-               
+
                 var myStore = await _storeService.GetStoreByIdAsync(processPaymentRequest.StoreId);
                 var currency = await _currencyService.GetCurrencyByIdAsync(_currencySettings.PrimaryStoreCurrencyId);
                 var lang = await _languageService.GetLanguageByIdAsync(myStore.DefaultLanguageId);
@@ -359,7 +360,7 @@ namespace Nop.Plugin.Payments.BTCPayServer
             var result = new RefundPaymentResult();
             try
             {
-                var sUrl =  await _btcPayService.CreateRefund(_btcPaySettings, refundPaymentRequest);
+                var sUrl = await _btcPayService.CreateRefund(_btcPaySettings, refundPaymentRequest);
                 result.NewPaymentStatus = refundPaymentRequest.IsPartialRefund ? PaymentStatus.PartiallyRefunded : PaymentStatus.Refunded;
                 await _orderService.InsertOrderNoteAsync(new OrderNote
                 {

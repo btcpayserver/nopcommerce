@@ -36,7 +36,7 @@ namespace Nop.Plugin.Payments.BTCPayServer.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Process([FromHeader(Name = "BTCPAY-SIG")] string BtcPaySig)
+        public async Task<IActionResult> Process([FromHeader(Name = "BTCPAY-Sig")] string BtcPaySig)
         {
             try
             {
