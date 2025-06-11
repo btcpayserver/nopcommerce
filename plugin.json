@@ -3,7 +3,7 @@
   "FriendlyName": "Bitcoin payments with BTCPay",
   "SystemName": "Payments.BTCPayServer",
   "Version": "1.11",
-  "SupportedVersions": [ "4.90" ],
+  "SupportedVersions": [ "4.80", "4.90" ],
   "Author": "Nisaba Solutions",
   "DisplayOrder": 1,
   "FileName": "Nop.Plugin.Payments.BTCPayServer.dll",
